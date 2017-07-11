@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>云书签-添加书签</title>
+<script type="text/javascript" src="../js/mdui.min.js"></script>
+<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/mdui.min.css">
+</head>
+<body class="mdui-theme-layout-dark">
+	<div id="test">
+		<button class="mdui-btn mdui-color-blue mdui-ripple"
+			id="selectBookmarks">查询</button>
+		<button class="mdui-btn mdui-color-blue mdui-ripple"
+			id="selectBookmarksVo">查询</button>
+	</div>
+	<div class="mdui-chip">
+		<a class="mdui-chip-title mdui-btn" href="http://www.baidu.com">百度</a> 
+		<span id="edit_bookmarks" class="mdui-chip-delete" mdui-dialog="{target: '#example-4'}"><i class="mdui-icon material-icons">edit</i></span>
+	</div>
+
+	<div class="mdui-dialog" id="example-4" style="display: block; top: 235px; height: 168px;">
+	<div class="mdui-dialog-title">修改书签</div>
+	<div class="mdui-dialog-content" style="height: 116px;">
+	<div class="mdui-textfield">
+  		<label class="mdui-textfield-label">书签名</label>
+  		<input class="mdui-textfield-input" type="text" name="name" id="name" required />
+  		<div class="mdui-textfield-error">书签名不能为空</div>
+	</div>
+	<div class="mdui-textfield">
+	  	<label class="mdui-textfield-label">书签链接</label>
+	  	<input class="mdui-textfield-input" type="url" name="url" id="url" disabled/>
+	</div>
+	<div class="mdui-textfield">
+	  	<label class="mdui-textfield-label">书签描述</label>
+	  	<!-- <input class="mdui-textfield-input" type="text" name="description" id="description" /> -->
+	  	<textarea class="mdui-textfield-input" name="description" id="description" type="text"></textarea>
+	</div>
+	<div>
+		<label class="mdui-checkbox">
+    	<input type="checkbox" name="state" id="state"  />
+    	<i class="mdui-checkbox-icon"></i>
+   	是否私密
+  </label>
+  </div>
+  </div>
+	<div class="mdui-dialog-actions">
+      <button class="mdui-btn mdui-ripple">修改</button>
+      <button class="mdui-btn mdui-ripple" mdui-dialog-close>取消</button>
+    </div>
+	<div>
+	
+	</div>
+</div>
+
+	<div id="test_button"></div>
+	<script type="text/javascript" src="../js/magic.js"></script>
+</body>
+</html>
