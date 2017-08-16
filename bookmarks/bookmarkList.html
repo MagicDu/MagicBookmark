@@ -8,6 +8,13 @@
 <link rel="stylesheet" type="text/css" href="../css/mdui.min.css">
 </head>
 <body class="mdui-theme-layout-dark">
+<div class="mdui-col">
+	<div class="mdui-textfield mdui-textfield-expandable mdui-float-right">
+	  <button class="mdui-textfield-icon mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></button>
+	  <input class="mdui-textfield-input" type="text" placeholder="Search"/>
+	  <button class="mdui-textfield-close mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">close</i></button>
+	</div>
+	</div>
 	<div id="test">
 		<button class="mdui-btn mdui-color-blue mdui-ripple"
 			id="selectBookmarks">查询</button>
@@ -16,10 +23,10 @@
 	</div>
 	<div class="mdui-chip">
 		<a class="mdui-chip-title mdui-btn" href="http://www.baidu.com">百度</a> 
-		<span id="edit_bookmarks" class="mdui-chip-delete" mdui-dialog="{target: '#example-4'}"><i class="mdui-icon material-icons">edit</i></span>
+		<span id="edit_bookmarks_span" class="mdui-chip-delete"><i class="mdui-icon material-icons">edit</i></span>
 	</div>
 
-	<div class="mdui-dialog" id="example-4" style="display: block; top: 235px; height: 168px;">
+	<div class="mdui-dialog" id="edit_bookmarks_dialog" style="display: block; top: 235px; height: 168px;">
 	<div class="mdui-dialog-title">修改书签</div>
 	<div class="mdui-dialog-content" style="height: 116px;">
 	<div class="mdui-textfield">
@@ -34,7 +41,10 @@
 	<div class="mdui-textfield">
 	  	<label class="mdui-textfield-label">书签描述</label>
 	  	<!-- <input class="mdui-textfield-input" type="text" name="description" id="description" /> -->
-	  	<textarea class="mdui-textfield-input" name="description" id="description" type="text"></textarea>
+	  	<textarea class="mdui-textfield-input" name="description" id="description"></textarea>
+	</div>
+	<div>
+	<input id="id" type="hidden"/>
 	</div>
 	<div>
 		<label class="mdui-checkbox">
@@ -45,7 +55,8 @@
   </div>
   </div>
 	<div class="mdui-dialog-actions">
-      <button class="mdui-btn mdui-ripple">修改</button>
+      <button class="mdui-btn mdui-ripple" id="edit_bookmarks_btn">修改</button>
+      <button class="mdui-btn mdui-ripple" id="edit_bookmarks_btn1">修改1</button>
       <button class="mdui-btn mdui-ripple" mdui-dialog-close>取消</button>
     </div>
 	<div>
@@ -53,7 +64,7 @@
 	</div>
 </div>
 
-	<div id="test_button"></div>
+	<div id="bookmarks_list"></div>
 	<script type="text/javascript" src="../js/magic.js"></script>
 </body>
 </html>
