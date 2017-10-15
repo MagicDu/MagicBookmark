@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>云书签</title>
+<script type="text/javascript" src="js/mdui.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/mdui.min.css">
+
+</head>
+<body
+	class=" mdui-theme-primary-blue mdui-theme-accent-pink mdui-theme-layout-dark">
+	<div class="mdui-toolbar mdui-color-theme">
+		<a href="./" class="mdui-typo-headline">云书签</a>
+		<div class="mdui-toolbar-spacer"></div>
+		<!-- <a href="user/login.html" class="mdui-btn mdui-ripple mdui-ripple-white">登录</a>
+    <a href="user/regist.html" class="mdui-btn mdui-ripple mdui-ripple-white">注册</a> -->
+		<button 
+			class="mdui-btn mdui-ripple mdui-ripple-white" id="user_login_btn_dialog">登录</button>
+		<button id="user_regist_btn_dialog"
+			class="mdui-btn mdui-ripple mdui-ripple-white">注册</button>
+		<a href="https://magicdu.cn" target="_blank" rel="nofollow"
+			class="mdui-btn mdui-ripple mdui-ripple-white mdui-hidden-xs">联系我们</a>
+	</div>
+	<div class="mdui-dialog" id="user_login_dialog"
+		style="display: block; top: 235px; height: 0px;">
+
+		<div class="mdui-dialog-title">用户登录</div>
+		<div class="mdui-dialog-content" style="height: 116px;">
+			<div class="mdui-textfield mdui-textfield-floating-label">
+				<label class="mdui-textfield-label">用户名</label> <input
+					class="mdui-textfield-input" type="text" id="login_username"/>
+			</div>
+			<div class="mdui-textfield mdui-textfield-floating-label">
+				<label class="mdui-textfield-label">密码</label> <input
+					class="mdui-textfield-input" type="password" id="login_password" />
+			</div>
+			<div>
+				<label class="mdui-checkbox" style="padding-right: 40px;"> <input
+					type="checkbox" /> <i class="mdui-checkbox-icon"></i> 记住密码
+				</label>
+				<div class="mdui-dialog-actions">
+					<button class="mdui-btn mdui-color-blue mdui-ripple" id="login_btn">登录</button>
+					<button class="mdui-btn mdui-color-blue mdui-ripple" mdui-dialog-close>取消</button>
+					<a href="" class="mdui-btn mdui-color-theme-accent mdui-ripple">忘记密码</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="mdui-dialog" id="user_regist_dialog">
+		<div class="mdui-dialog-title">用户注册</div>
+		<div class="mdui-dialog-content">
+			<div class="mdui-textfield mdui-textfield-floating-label" >
+					<label class="mdui-textfield-label">用户名</label> <input
+						class="mdui-textfield-input" type="text"  id="username" required/>
+						<div class="mdui-textfield-error">用户名不能为空</div>
+				</div>
+				<div class="mdui-textfield mdui-textfield-floating-label" >
+					<label class="mdui-textfield-label">邮箱</label> <input
+						class="mdui-textfield-input" type="email" id="email" required />
+						<div class="mdui-textfield-error">邮箱格式错误</div>
+				</div>
+				<div class="mdui-textfield mdui-textfield-floating-label" >
+					<label class="mdui-textfield-label">密码</label> <input
+						class="mdui-textfield-input" type="password" id="password" required/>
+						<div class="mdui-textfield-error">密码不能为空</div>
+				</div>
+				<div class="mdui-textfield mdui-textfield-floating-label" >
+					<label class="mdui-textfield-label">再次输入密码</label> <input
+						class="mdui-textfield-input" type="password" id="password1" required/>
+						<div class="mdui-textfield-error">密码不能为空</div>
+				</div>
+		</div>
+		<div class="mdui-dialog-actions">
+			<button class="mdui-btn mdui-ripple mdui-color-theme-accent" id="regist_btn">注册</button>
+      		<button class="mdui-btn mdui-ripple mdui-color-theme-accent" mdui-dialog-close>取消</button>
+		</div>
+	</div>
+	
+	<!-- <div class="mdui-dialog" id="edit_bookmarks_dialog" style="display: block; top: 235px; height: 168px;">
+	<div class="mdui-dialog-title">修改书签</div>
+	<div class="mdui-dialog-content" style="height: 116px;">
+	<div class="mdui-textfield">
+  		<label class="mdui-textfield-label">书签名</label>
+  		<input class="mdui-textfield-input" type="text" name="name" id="name" required />
+  		<div class="mdui-textfield-error">书签名不能为空</div>
+	</div>
+	<div class="mdui-textfield">
+	  	<label class="mdui-textfield-label">书签链接</label>
+	  	<input class="mdui-textfield-input" type="url" name="url" id="url" disabled/>
+	</div>
+	<div class="mdui-textfield">
+	  	<label class="mdui-textfield-label">书签描述</label>
+	  	<input class="mdui-textfield-input" type="text" name="description" id="description" />
+	  	<textarea class="mdui-textfield-input" name="description" id="description"></textarea>
+	</div>
+	<div>
+	<input id="id" type="hidden"/>
+	</div>
+	<div>
+		<label class="mdui-checkbox">
+    	<input type="checkbox" name="state" id="state"  />
+    	<i class="mdui-checkbox-icon"></i>
+   	是否私密
+  </label>
+  </div>
+  </div>
+	<div class="mdui-dialog-actions">
+      <button class="mdui-btn mdui-ripple" id="edit_bookmarks_btn">修改</button>
+      <button class="mdui-btn mdui-ripple" id="edit_bookmarks_btn1">修改1</button>
+      <button class="mdui-btn mdui-ripple" mdui-dialog-close>取消</button>
+    </div>
+	<div>
+	
+	</div>
+</div> -->
+	
+	<div id="bookmarks_list"></div>
+	<script type="text/javascript" src="js/magic.js"></script>
+</body>
+</html>
