@@ -34,9 +34,14 @@ public class UsersController {
 	
 	@RequestMapping("userLogin")
 	@ResponseBody
-	public Users userLogin(String username,String password)throws Exception{
+	public Msg userLogin(String username,String password)throws Exception{
 		Users user =usersService.userLogin(username,password);
-		return user;
-		
+		Msg msg=new Msg();
+		if(user!=null){
+			msg.setMsg("success");
+		}else{
+			msg.setMsg("error");
+		}
+		return msg;
 	}
 }

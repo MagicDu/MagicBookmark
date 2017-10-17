@@ -110,7 +110,11 @@ $('#login_btn').click(function(){
 			login_dialog.close();
 			$('#login_username').val("");
 			$('#login_password').val("");
-			mdui.alert(data.username);
+			if(data.msg=="error"){
+				mdui.alert("用户名或者密码错误");
+			}else{
+				
+			}
 		},
 		error : function() {
 			login_dialog.close();
