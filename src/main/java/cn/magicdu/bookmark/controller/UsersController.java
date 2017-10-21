@@ -1,15 +1,15 @@
 package cn.magicdu.bookmark.controller;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import cn.magicdu.bookmark.pojo.Constant;
 import cn.magicdu.bookmark.pojo.Msg;
 import cn.magicdu.bookmark.pojo.Users;
 import cn.magicdu.bookmark.service.UsersService;
+import cn.magicdu.bookmark.utils.AuthConfirm;
 
 /**
  * 用户Controller
@@ -36,13 +36,15 @@ public class UsersController {
 	
 	@RequestMapping("userLogin")
 	@ResponseBody
-	public Msg userLogin(HttpSession session,String username,String password)throws Exception{
+	public Msg userLogin(String username,String password)throws Exception{
 		Users user =usersService.userLogin(username,password);
+		
 		Msg msg=new Msg();
 		if(user!=null){
-			session.setAttribute("user", user);
 			msg.setMsg("success");
 			msg.setView("index.jsp");
+			AuthConfirm authConfirm=new AuthConfirm();
+			authConfirm.createJwt(Constant.JWT_ID, authConfirm.generateSubject(user), Constant.JWT_TTL);
 		}else{
 			msg.setMsg("error");
 		}
