@@ -38,13 +38,13 @@ public class UsersController {
 	@ResponseBody
 	public Msg userLogin(String username,String password)throws Exception{
 		Users user =usersService.userLogin(username,password);
-		
 		Msg msg=new Msg();
 		if(user!=null){
 			msg.setMsg("success");
 			msg.setView("index.jsp");
 			AuthConfirm authConfirm=new AuthConfirm();
-			authConfirm.createJwt(Constant.JWT_ID, authConfirm.generateSubject(user), Constant.JWT_TTL);
+			String tokenStr=authConfirm.createJwt(Constant.JWT_ID, authConfirm.generateSubject(user), Constant.JWT_TTL);
+			msg.setAuth(tokenStr);
 		}else{
 			msg.setMsg("error");
 		}
