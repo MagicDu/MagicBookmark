@@ -113,7 +113,7 @@ $('#login_btn').click(function(){
 			if(data.msg=="error"){
 				mdui.alert("用户名或者密码错误");
 			}else{
-				
+				localStorage.setItem("*-@5679sdf",data.auth);
 			}
 		},
 		error : function() {
