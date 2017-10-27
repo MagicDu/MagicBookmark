@@ -5,6 +5,43 @@ inst = new mdui.Dialog("#edit_bookmarks_dialog"); //编辑书签对话框
 login_dialog=new mdui.Dialog("#user_login_dialog");//用户登录对话框
 regist_dialog=new mdui.Dialog('#user_regist_dialog');//注册对话框
 
+$(function(){
+	init();
+})
+
+function init(){
+					$.ajax({
+								type : 'POST',
+								url : '../selectBookmarks.action',
+								data : {
+									"user_id" : 'test'
+								},
+								dataType : 'json',
+								success : function(data) {
+									// alert(data);
+									$.each(data,function(i, item) {
+														// console.log(item.url);
+
+														$('#bookmarks_list')
+																.append(
+																		"<div class=\"mdui-chip\"><a class=\"mdui-chip-title mdui-btn\" href="
+																				+ item.url
+																				+ ">"
+																				+ item.name
+																				+ "</a> <span id="
+																				+ item.id
+																				+ " class=\"mdui-chip-delete\"><i class=\"mdui-icon material-icons\">edit</i></span></div>");
+
+													})
+								},
+								error : function(data) {
+									alert(data);
+								}
+
+							});
+}
+				
+
 /*$(document).ready(function(){
 	$
 	.ajax({
@@ -227,7 +264,7 @@ $('#selectBookmarksVo').click(function() {
 $('#bookmarks_list').on('click','span',(function(e) {
 	$.ajax({
 		type : 'POST',
-		url : '../../selectBookmarksById.action',
+		url : '../selectBookmarksById.action',
 		data : {
 			"id" :$(e.currentTarget)[0].id
 		},
@@ -266,7 +303,7 @@ $('#edit_bookmarks_btn').click(function(e) {
 	}
 	$.ajax({
 		type:'POST',
-		url:'../../updateBookmarksById.action',
+		url:'../updateBookmarksById.action',
 		data:{
 			"id":$('#id').val(),
 			"name":$('#name').val(),
