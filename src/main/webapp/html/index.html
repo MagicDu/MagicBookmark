@@ -9,11 +9,10 @@
 </head>
 <body
 	class=" mdui-theme-primary-blue mdui-theme-accent-pink mdui-theme-layout-dark">
+	
 	<div class="mdui-toolbar mdui-color-theme">
 		<a href="./" class="mdui-typo-headline">云书签</a>
 		<div class="mdui-toolbar-spacer"></div>
-		<!-- <a href="user/login.html" class="mdui-btn mdui-ripple mdui-ripple-white">登录</a>
-    <a href="user/regist.html" class="mdui-btn mdui-ripple mdui-ripple-white">注册</a> -->
 		<button 
 			class="mdui-btn mdui-ripple mdui-ripple-white" id="user_login_btn_dialog">登录</button>
 		<button id="user_regist_btn_dialog"
@@ -21,6 +20,7 @@
 		<a href="https://magicdu.cn" target="_blank" rel="nofollow"
 			class="mdui-btn mdui-ripple mdui-ripple-white mdui-hidden-xs">联系我们</a>
 	</div>
+	<!-- login dialog -->
 	<div class="mdui-dialog" id="user_login_dialog"
 		style="display: block; top: 235px; height: 0px;">
 
@@ -28,7 +28,7 @@
 		<div class="mdui-dialog-content" style="height: 116px;">
 			<div class="mdui-textfield mdui-textfield-floating-label">
 				<label class="mdui-textfield-label">用户名</label> <input
-					class="mdui-textfield-input" type="text" id="login_username"/>
+					class="mdui-textfield-input" type="text" id="login_username" />
 			</div>
 			<div class="mdui-textfield mdui-textfield-floating-label">
 				<label class="mdui-textfield-label">密码</label> <input
@@ -40,12 +40,14 @@
 				</label>
 				<div class="mdui-dialog-actions">
 					<button class="mdui-btn mdui-color-blue mdui-ripple" id="login_btn">登录</button>
-					<button class="mdui-btn mdui-color-blue mdui-ripple" mdui-dialog-close>取消</button>
+					<button class="mdui-btn mdui-color-blue mdui-ripple"
+						mdui-dialog-close>取消</button>
 					<a href="" class="mdui-btn mdui-color-theme-accent mdui-ripple">忘记密码</a>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- regist_dialog  -->
 	<div class="mdui-dialog" id="user_regist_dialog">
 		<div class="mdui-dialog-title">用户注册</div>
 		<div class="mdui-dialog-content">
@@ -77,8 +79,7 @@
 	</div>
 	
 	
-	
- <div class="mdui-dialog" id="edit_bookmarks_dialog" style="display: block; top: 235px; height: 168px;">
+ <div class="mdui-dialog" id="edit_bookmarks_dialog" style="display: block; top: 235px; height: 0px;">
 	<div class="mdui-dialog-title">修改书签</div>
 	<div class="mdui-dialog-content" style="height: 116px;">
 	<div class="mdui-textfield">
@@ -92,7 +93,6 @@
 	</div>
 	<div class="mdui-textfield">
 	  	<label class="mdui-textfield-label">书签描述</label>
-	  	<input class="mdui-textfield-input" type="text" name="description" id="description" />
 	  	<textarea class="mdui-textfield-input" name="description" id="description"></textarea>
 	</div>
 	<div>
@@ -105,15 +105,12 @@
    	是否私密
   </label>
   </div>
-  </div>
-	<div class="mdui-dialog-actions">
+  <div class="mdui-dialog-actions">
       <button class="mdui-btn mdui-ripple" id="edit_bookmarks_btn">修改</button>
       <button class="mdui-btn mdui-ripple" id="edit_bookmarks_btn1">修改1</button>
       <button class="mdui-btn mdui-ripple" mdui-dialog-close>取消</button>
     </div>
-	<div>
-	
-	</div>
+  </div>
 </div>
 	
 	<div id="bookmarks_list"></div>

@@ -6,7 +6,12 @@ login_dialog=new mdui.Dialog("#user_login_dialog");//用户登录对话框
 regist_dialog=new mdui.Dialog('#user_regist_dialog');//注册对话框
 
 $(function(){
-	init();
+	if(localStorage.getItem('*-@5679sdf')!=null){
+		init();
+	}
+	else{
+		
+	}
 })
 
 function init(){
@@ -35,11 +40,12 @@ function init(){
 													})
 								},
 								error : function(data) {
-									alert(data);
+									mdui.alert("服务器错误");
 								}
 
 							});
 }
+
 				
 
 /*$(document).ready(function(){
@@ -151,6 +157,7 @@ $('#login_btn').click(function(){
 				mdui.alert("用户名或者密码错误");
 			}else{
 				localStorage.setItem("*-@5679sdf",data.auth);
+				init();
 			}
 		},
 		error : function() {
@@ -313,8 +320,11 @@ $('#edit_bookmarks_btn').click(function(e) {
 		},
 		success:function(data){
 			inst.close();
-			mdui.alert('修改成功');
-			//location.reload();
+			mdui.alert('修改成功',function(){
+				$('#bookmarks_list').html('');
+				init();
+			});
+			
 		},
 		error:function(){
 			mdui.alert('服务器错误')
