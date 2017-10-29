@@ -4,17 +4,32 @@
 inst = new mdui.Dialog("#edit_bookmarks_dialog"); //编辑书签对话框
 login_dialog=new mdui.Dialog("#user_login_dialog");//用户登录对话框
 regist_dialog=new mdui.Dialog('#user_regist_dialog');//注册对话框
+addbookmrak_dialog=new mdui.Dialog('#add_bookmarks_dialog');//添加书签对话框
 
 $(function(){
 	if(localStorage.getItem('*-@5679sdf')!=null){
+		//divDisplay('#menubarwithlogin','display:none');
 		init();
 	}
 	else{
-		
+		//divDisplay('#menubarwithbookmark','display:none');
+		$('#menubarwithbookmark').hide();
 	}
 })
 
+/**
+ * 设置某个元素的css属性
+ * @param id
+ * @param css_str
+ * @returns
+ */
+function divDisplay(id,css_str){
+	$(id).css(css_str);
+}
+
 function init(){
+					$('#menubarwithlogin').hide();
+					$('#menubarwithbookmark').show();
 					$.ajax({
 								type : 'POST',
 								url : '../selectBookmarks.action',
@@ -175,6 +190,11 @@ $('#login_btn').click(function(){
 /**
  * 添加书签
  */ 
+$('#add_bookmark').click(function(){
+	addbookmrak_dialog.open();
+})
+
+
 $('#add_bookmark_btn').click(function() {
 	if ($('#state').prop('checked')) {
 		state = 1;
