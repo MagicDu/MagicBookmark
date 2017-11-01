@@ -15,7 +15,6 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.impl.crypto.MacProvider;
 import net.sf.json.JSONObject;
 
-@SuppressWarnings("restriction")
 public class AuthConfirm {
 	
 
@@ -66,7 +65,6 @@ public class AuthConfirm {
         jo.put("userId", user.getId());
         jo.put("userName", user.getUsername());
         return jo.toString();
-
 	}
 	
 	

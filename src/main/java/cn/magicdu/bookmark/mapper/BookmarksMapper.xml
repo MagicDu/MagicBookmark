@@ -52,37 +52,43 @@
 	<select id="selectBookmarksVo" parameterType="java.lang.String"
 		resultMap="DetailBaseResultMap">
 		select bookmarks.*,category.name c_name
-		from bookmarks,category
+		from
+		bookmarks,category
 		where bookmarks.category_id=category.id
 	</select>
-	 <select id="selectBookmarksById" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
-    <include refid="Base_Column_List" />
-    from bookmarks
-    where id = #{id,jdbcType=VARCHAR}
-  </select>
-  <update id="updateBookmarksById" parameterType="cn.magicdu.bookmark.pojo.Bookmarks" >
-    update bookmarks
-    <set >
-     <if test="user_id!= null" >
-        user_id = #{user_id,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="category_id != null" >
-        category_id = #{category_id,jdbcType=VARCHAR},
-      </if>
-      <if test="url != null" >
-        url = #{url,jdbcType=VARCHAR},
-      </if>
-      <if test="state != null" >
-        state = #{state,jdbcType=INTEGER},
-      </if>
-      <if test="description != null" >
-        description = #{description,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=VARCHAR}
-  </update>
+	<select id="selectBookmarksById" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from bookmarks
+		where id = #{id,jdbcType=VARCHAR}
+	</select>
+	<update id="updateBookmarksById" parameterType="cn.magicdu.bookmark.pojo.Bookmarks">
+		update bookmarks
+		<set>
+			<if test="user_id!= null">
+				user_id = #{user_id,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="category_id != null">
+				category_id = #{category_id,jdbcType=VARCHAR},
+			</if>
+			<if test="url != null">
+				url = #{url,jdbcType=VARCHAR},
+			</if>
+			<if test="state != null">
+				state = #{state,jdbcType=INTEGER},
+			</if>
+			<if test="description != null">
+				description = #{description,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=VARCHAR}
+	</update>
+
+	<!-- select u.id,u.username,bm.id,bm.name,bm.url,bm.description,bm.state,ce.id,ce.name 
+		from bookmarks bm,category ce,users u where u.id=bm.user_id and bm.category_id=ce.id 
+		and u.id='test' -->
 </mapper>

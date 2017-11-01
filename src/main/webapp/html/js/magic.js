@@ -297,13 +297,13 @@ $('#bookmarks_list').on('click','span',(function(e) {
 		},
 		dataType : 'json',
 		success : function(data) {
-			  $('#id').val($(e.currentTarget)[0].id)
-			  $('#name').val(data.name); 
-			  $('#url').val(data.url);
-			  $('#description').val(data.description);
+			  $('#b_id').val($(e.currentTarget)[0].id)
+			  $('#b_name').val(data.name); 
+			  $('#b_url').val(data.url);
+			  $('#b_description').val(data.description);
 			 // alert( $('#state').prop('checked'))
 			  if(data.state==1){
-				  $('#state').prop('checked',true)
+				  $('#b_state').prop('checked',true)
 			  }
 			  //var inst = new mdui.Dialog("#edit_bookmarks_dialog");
 			 // console.log(inst.$dialog[0]); 
@@ -323,7 +323,7 @@ $('#bookmarks_list').on('click','span',(function(e) {
 $('#edit_bookmarks_btn').click(function(e) {
 	
 	//mdui.alert("修改成功");
-	if ($('#state').prop('checked')) {
+	if ($('#b_state').prop('checked')) {
 		state = 1;
 	} else {
 		state = 0;
@@ -332,10 +332,10 @@ $('#edit_bookmarks_btn').click(function(e) {
 		type:'POST',
 		url:'../updateBookmarksById.action',
 		data:{
-			"id":$('#id').val(),
-			"name":$('#name').val(),
-			"url":$('#url').val(),
-			"description":$('#description').val(),
+			"id":$('#b_id').val(),
+			"name":$('#b_name').val(),
+			"url":$('#b_url').val(),
+			"description":$('#b_description').val(),
 			"state":state
 		},
 		success:function(data){

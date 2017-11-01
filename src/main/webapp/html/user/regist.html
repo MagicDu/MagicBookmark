@@ -1,23 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>云书签-注册</title>
-<script type="text/javascript" src="../js/mdui.min.js"></script>
-<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
-<link rel="stylesheet" type="text/css" href="../css/mdui.min.css">
-</head>
-<body class="mdui-theme-layout-dark">
-	<div
-		style="margin: 0 auto; width: 300px; height: 200px; padding-top: 200px;">
-		<div id="regist_form">
-			<div class="mdui-chip">
-				<span class="mdui-chip-icon"><i
-					class="mdui-icon material-icons">&#xe87c;</i></span> <span
-					class="mdui-chip-title">用户注册</span>
-			</div>
-			<div style="width: 300px; height: 400px;">
-				<div class="mdui-textfield mdui-textfield-floating-label" >
+<!-- regist_dialog  -->
+	<div class="mdui-dialog" id="user_regist_dialog">
+		<div class="mdui-dialog-title">用户注册</div>
+		<div class="mdui-dialog-content">
+			<div class="mdui-textfield mdui-textfield-floating-label" >
 					<label class="mdui-textfield-label">用户名</label> <input
 						class="mdui-textfield-input" type="text"  id="username" required/>
 						<div class="mdui-textfield-error">用户名不能为空</div>
@@ -37,12 +22,11 @@
 						class="mdui-textfield-input" type="password" id="password1" required/>
 						<div class="mdui-textfield-error">密码不能为空</div>
 				</div>
-				<div>
-					<button class="mdui-btn mdui-color-blue mdui-ripple" id="regist_btn">注册</button>
-				</div>
-			</div>
 		</div>
-		<script type="text/javascript" src="../js/magic.js"></script>
+		<div class="mdui-dialog-actions">
+			<button class="mdui-btn mdui-ripple mdui-color-theme-accent" id="regist_btn">注册</button>
+      		<button class="mdui-btn mdui-ripple mdui-color-theme-accent" mdui-dialog-close>取消</button>
+		</div>
 	</div>
-</body>
-</html>
+	
+	
