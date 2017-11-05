@@ -41,4 +41,6 @@ public interface BookmarksService {
 	 */
 	public int updateBookmarksById(Bookmarks bookmarks);
 	
+	public List <BookmarksVo> selectUserBookmarksById(String user_id);
+	
 }

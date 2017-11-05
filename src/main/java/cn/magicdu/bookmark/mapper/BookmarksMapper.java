@@ -42,4 +42,10 @@ public interface BookmarksMapper {
 	 * @return
 	 */
 	public int updateBookmarksById(Bookmarks bookmarks);
+	
+	/**
+	 * 查询用户书签
+	 */
+	
+	public List<BookmarksVo> selectInfoByIdAndCe(String user_id);
 }

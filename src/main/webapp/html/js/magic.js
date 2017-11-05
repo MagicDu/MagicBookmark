@@ -352,6 +352,23 @@ $('#edit_bookmarks_btn').click(function(e) {
 	});
 	
 });
+
+$('#test').click(function (){
+	$.ajax({
+		type:'POST',
+		url:'../selectUserBoomarks.action',
+		data : {
+			"user_id" : 'test'
+		},
+		success:function(data){
+			mdui.alert('查询成功')
+		},
+		error:function(){
+			mdui.alert('服务器错误')
+		}
+	});
+});
+
 $('#edit_bookmarks_btn1').click(function() {
 	alert("名字:"+$('#name').val())
 })

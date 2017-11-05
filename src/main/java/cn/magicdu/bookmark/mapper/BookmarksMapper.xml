@@ -10,6 +10,7 @@
 		<result column="description" property="description" jdbcType="VARCHAR" />
 		<result column="state" property="state" jdbcType="INTEGER" />
 	</resultMap>
+	
 	<resultMap id="DetailBaseResultMap" type="cn.magicdu.bookmark.pojo.BookmarksVo">
 		<id column="id" property="id" jdbcType="VARCHAR" />
 		<result column="user_id" property="user_id" jdbcType="VARCHAR" />
@@ -24,6 +25,10 @@
 			<result column="c_name" property="name" jdbcType="VARCHAR" />
 		</association>
 	</resultMap>
+	
+	
+	
+	
 	<sql id="Base_Column_List">
 		id, user_id, name, url, category_id, description, state
 	</sql>
@@ -88,11 +93,11 @@
 		where id = #{id,jdbcType=VARCHAR}
 	</update>
 
-	<!-- select u.id,u.username,bm.id,bm.name,bm.url,bm.description,bm.state,ce.id,ce.name 
-		from bookmarks bm,category ce,users u where u.id=bm.user_id and bm.category_id=ce.id 
-		and u.id='test' -->
-		
-		<select id="selectInfoByIdAndCe">
-		
-		</select>
+		<select id="selectInfoByIdAndCe" resultType="cn.magicdu.bookmark.pojo.BookmarksVo" parameterType="java.lang.String" >
+		select
+		u.id userid,u.username username,bm.*,ce.id categoryid,ce.name categoryname
+		from bookmarks bm,category ce,users u where u.id=bm.user_id and
+		bm.category_id=ce.id
+		and u.id=#{user_id,jdbcType=VARCHAR}
+	</select>
 </mapper>

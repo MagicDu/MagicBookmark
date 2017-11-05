@@ -57,4 +57,11 @@ public class BookmarksController {
 		}
 		return msg;
 	}
+	
+	@RequestMapping("selectUserBoomarks")
+	@ResponseBody
+	public List<BookmarksVo> selectUserBoomarks (String user_id) throws Exception{
+		
+		return bookmarksService.selectUserBookmarksById("test");
+	}
 }

@@ -41,5 +41,8 @@ public class BookmarksServiceImpl implements BookmarksService {
 		bookmarks.setUser_id("test");
 		return bookmarksMapper.updateBookmarksById(bookmarks);
 	}
-
+	
+	public List <BookmarksVo> selectUserBookmarksById(String user_id){
+		return bookmarksMapper.selectInfoByIdAndCe(user_id);
+	}
 }
