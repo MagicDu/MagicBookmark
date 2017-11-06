@@ -361,13 +361,21 @@ $('#test').click(function (){
 			"user_id" : 'test'
 		},
 		success:function(data){
-			mdui.alert('查询成功')
+			mdui.alert(data.resultMap['test,计算机'][0].userid)
 		},
 		error:function(){
 			mdui.alert('服务器错误')
 		}
 	});
 });
+
+// 解析数据到页面上
+function parseDataToView(data){
+	for(var prop in data){
+		
+	}
+}
+
 
 $('#edit_bookmarks_btn1').click(function() {
 	alert("名字:"+$('#name').val())
