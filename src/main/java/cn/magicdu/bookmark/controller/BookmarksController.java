@@ -60,8 +60,10 @@ public class BookmarksController {
 	
 	@RequestMapping("selectUserBoomarks")
 	@ResponseBody
-	public List<BookmarksVo> selectUserBoomarks (String user_id) throws Exception{
-		
-		return bookmarksService.selectUserBookmarksById("test");
+	public Msg selectUserBoomarks (String user_id) throws Exception{
+		Msg msg = new Msg();
+		msg.setMsg("success");
+		msg.setResultMap(bookmarksService.selectUserBookmarksById(user_id));
+		return msg;
 	}
 }

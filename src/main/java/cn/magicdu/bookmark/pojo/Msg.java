@@ -1,9 +1,12 @@
 package cn.magicdu.bookmark.pojo;
 
+import java.util.Map;
+
 public class Msg {
 	private String msg;
 	private String view;
 	private String auth;
+	private Map resultMap;
 
 	public String getMsg() {
 		return msg;
@@ -28,6 +31,18 @@ public class Msg {
 	public void setAuth(String auth) {
 		this.auth = auth;
 	}
+
+	public Map getResultMap() {
+		return resultMap;
+	}
+
+	public void setResultMap(Map resultMap) {
+		this.resultMap = resultMap;
+	}
+
+	
+	
+	
 	
 	
 	

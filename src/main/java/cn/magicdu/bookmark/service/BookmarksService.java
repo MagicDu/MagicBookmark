@@ -1,6 +1,7 @@
 package cn.magicdu.bookmark.service;
 
 import java.util.List;
+import java.util.Map;
 
 import cn.magicdu.bookmark.pojo.Bookmarks;
 import cn.magicdu.bookmark.pojo.BookmarksVo;
@@ -41,6 +42,7 @@ public interface BookmarksService {
 	 */
 	public int updateBookmarksById(Bookmarks bookmarks);
 	
-	public List <BookmarksVo> selectUserBookmarksById(String user_id);
+	
+	public Map<String, List<Object>> selectUserBookmarksById(String user_id);
 	
 }
