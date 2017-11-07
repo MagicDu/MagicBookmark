@@ -361,7 +361,8 @@ $('#test').click(function (){
 			"user_id" : 'test'
 		},
 		success:function(data){
-			mdui.alert(data.resultMap['test,计算机'][0].userid)
+			//mdui.alert(data.resultMap['test,计算机'][0].userid)
+			parseDataToView(data);
 		},
 		error:function(){
 			mdui.alert('服务器错误')
@@ -371,8 +372,17 @@ $('#test').click(function (){
 
 // 解析数据到页面上
 function parseDataToView(data){
-	for(var prop in data){
-		
+	var resultMap=data.resultMap;
+	for(var prop in resultMap){
+		//mdui.alert(resultMap[prop][0].userid)
+		var category=prop.split(',')[1];
+		var categoryid=prop.split(',')[0];
+		var bmList=resultMap[prop]
+		//mdui.alert(category)
+		for(var i=0;i<bmList.length;i++){
+			//mdui.alert(bmList[i].url)
+			
+		}
 	}
 }
 
