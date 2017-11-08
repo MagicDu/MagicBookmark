@@ -68,6 +68,7 @@ public class BookmarksServiceImpl implements BookmarksService {
 				uab.setUrl(bmv.getUrl());
 				uab.setDescription(bmv.getDescription());
 				uab.setState(bmv.getState());
+				uab.setId(bmv.getId());
 				List<Object> bmList=resultMap.get(categoryStr);
 				if(bmList==null){
 					bmList = new ArrayList<Object>();

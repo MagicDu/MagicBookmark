@@ -6,6 +6,7 @@ public class UserAndBookmarks {
 	private String url;
 	private String name;
 	private String description;
+	private String id;
 	private int state;
 
 	public String getUserid() {
@@ -56,4 +57,13 @@ public class UserAndBookmarks {
 		this.state = state;
 	}
 
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	
 }

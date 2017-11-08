@@ -381,6 +381,15 @@ function parseDataToView(data){
 		//mdui.alert(category)
 		for(var i=0;i<bmList.length;i++){
 			//mdui.alert(bmList[i].url)
+			$('#bookmarks_list')
+			.append(
+					"<div class=\"mdui-chip\"><a class=\"mdui-chip-title mdui-btn\" href="
+							+ bmList[i].url
+							+ ">"
+							+ bmList[i].name
+							+ "</a> <span id="
+							+ bmList[i].id
+							+ " class=\"mdui-chip-delete\"><i class=\"mdui-icon material-icons\">edit</i></span></div>");
 			
 		}
 	}
