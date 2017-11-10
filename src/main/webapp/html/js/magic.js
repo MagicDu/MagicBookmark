@@ -5,6 +5,15 @@ inst = new mdui.Dialog("#edit_bookmarks_dialog"); //编辑书签对话框
 login_dialog=new mdui.Dialog("#user_login_dialog");//用户登录对话框
 regist_dialog=new mdui.Dialog('#user_regist_dialog');//注册对话框
 addbookmrak_dialog=new mdui.Dialog('#add_bookmarks_dialog');//添加书签对话框
+navbar=new mdui.Drawer('#drawer')
+
+var selector={
+	
+}
+var options={
+	
+	
+}
 
 $(function(){
 	if(localStorage.getItem('*-@5679sdf')!=null){
