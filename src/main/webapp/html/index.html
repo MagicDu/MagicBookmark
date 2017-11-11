@@ -10,127 +10,137 @@
 
 <body
 	class=" mdui-theme-primary-blue mdui-theme-accent-pink  mdui-drawer-body-left mdui-appbar-with-toolbar">
-	
+
 	<header class="mdui-appbar mdui-appbar-fixed">
-<div id="menubarwithlogin" class="mdui-toolbar mdui-color-theme">
-		<a href="./" class="mdui-typo-headline">云书签</a>
-		<div class="mdui-toolbar-spacer"></div>
-		<button 
-			class="mdui-btn mdui-ripple mdui-ripple-white" id="user_login_btn_dialog">登录</button>
-		<button id="user_regist_btn_dialog"
-			class="mdui-btn mdui-ripple mdui-ripple-white">注册</button>
-			<button 
-			class="mdui-btn mdui-ripple mdui-ripple-white" id="test">测试</button>
-		<a href="https://magicdu.cn" target="_blank" rel="nofollow"
-			class="mdui-btn mdui-ripple mdui-ripple-white mdui-hidden-xs">联系我们</a>
-	</div>
-	<div id="menubarwithbookmark" class="mdui-toolbar mdui-color-theme">
-		<a href="./" class="mdui-typo-headline">云书签</a>
-		<div class="mdui-toolbar-spacer"></div>
-		<button 
-			class="mdui-btn mdui-ripple mdui-ripple-white" id="add_bookmark">添加书签</button>
-		<button id="user_regist_btn_dialog"
-			class="mdui-btn mdui-ripple mdui-ripple-white">修改密码</button>
-		<a href="https://magicdu.cn" target="_blank" rel="nofollow"
-			class="mdui-btn mdui-ripple mdui-ripple-white mdui-hidden-xs">联系我们</a>
-	</div>
-</header>
-	
+		<div id="menubarwithlogin" class="mdui-toolbar mdui-color-theme">
+			<span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"
+				mdui-drawer="{target: '#main-drawer', swipe: true}"><i
+				class="mdui-icon material-icons">menu</i></span> <a href="./"
+				class="mdui-typo-headline">云生活</a>
+			<div class="mdui-toolbar-spacer"></div>
+			<button class="mdui-btn mdui-ripple mdui-ripple-white"
+				id="user_login_btn_dialog">登录</button>
+			<button id="user_regist_btn_dialog"
+				class="mdui-btn mdui-ripple mdui-ripple-white">注册</button>
+			<button class="mdui-btn mdui-ripple mdui-ripple-white" id="test">测试</button>
+			<a href="https://magicdu.cn" target="_blank" rel="nofollow"
+				class="mdui-btn mdui-ripple mdui-ripple-white mdui-hidden-xs">联系我们</a>
+		</div>
+		<div id="menubarwithbookmark" class="mdui-toolbar mdui-color-theme">
+			<a href="./" class="mdui-typo-headline">云书签</a>
+			<div class="mdui-toolbar-spacer"></div>
+			<button class="mdui-btn mdui-ripple mdui-ripple-white"
+				id="add_bookmark">添加书签</button>
+			<button id="user_regist_btn_dialog"
+				class="mdui-btn mdui-ripple mdui-ripple-white">修改密码</button>
+			<a href="https://magicdu.cn" target="_blank" rel="nofollow"
+				class="mdui-btn mdui-ripple mdui-ripple-white mdui-hidden-xs">联系我们</a>
+		</div>
+	</header>
+
 	<div class="mdui-drawer" id="main-drawer">
-  <div class="mdui-list" mdui-collapse="{accordion: true}" style="margin-bottom: 76px;">
-    <div class="mdui-collapse-item ">
-      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">near_me</i>
-        <div class="mdui-list-item-content">开始使用</div>
-        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
-      </div>
-      <div class="mdui-collapse-item-body mdui-list">
-        <a href="./download" class="mdui-list-item mdui-ripple ">获取 MDUI</a>
-        <a href="./compatibility" class="mdui-list-item mdui-ripple ">兼容性</a>
-        <a href="./specs" class="mdui-list-item mdui-ripple ">规范</a>
-        <a href="./jq" class="mdui-list-item mdui-ripple ">JavaScript 工具库</a>
-      </div>
-    </div>
+		<div class="mdui-list" mdui-collapse="{accordion: true}"
+			style="margin-bottom: 76px;">
+			<div class="mdui-collapse-item ">
+				<div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+					<i
+						class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">near_me</i>
+					<div class="mdui-list-item-content">云便签</div>
+					<i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+				</div>
+				<div class="mdui-collapse-item-body mdui-list">
+					<a href="./download" class="mdui-list-item mdui-ripple ">开源项目
+						</a> <a href="./compatibility" class="mdui-list-item mdui-ripple ">博客收藏</a>
+					<a href="./specs" class="mdui-list-item mdui-ripple ">Python爬虫</a> <a
+						href="./jq" class="mdui-list-item mdui-ripple ">文档收藏</a>
+				</div>
+			</div>
 
-    <div class="mdui-collapse-item ">
-      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">layers</i>
-        <div class="mdui-list-item-content">样式</div>
-        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
-      </div>
-      <div class="mdui-collapse-item-body mdui-list">
-        <a href="./color" class="mdui-list-item mdui-ripple ">颜色与主题</a>
-        <a href="./font" class="mdui-list-item mdui-ripple ">字体</a>
-        <a href="./grid" class="mdui-list-item mdui-ripple ">网格布局</a>
-        <a href="./typo" class="mdui-list-item mdui-ripple ">排版</a>
-        <a href="./icon" class="mdui-list-item mdui-ripple ">图标</a>
-        <a href="./media" class="mdui-list-item mdui-ripple ">媒体</a>
-        <a href="./helper" class="mdui-list-item mdui-ripple ">辅助类</a>
-        <a href="./shadow" class="mdui-list-item mdui-ripple ">阴影</a>
-      </div>
-    </div>
+			<div class="mdui-collapse-item ">
+				<div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+					<i
+						class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">layers</i>
+					<div class="mdui-list-item-content">样式</div>
+					<i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+				</div>
+				<div class="mdui-collapse-item-body mdui-list">
+					<a href="./color" class="mdui-list-item mdui-ripple ">颜色与主题</a> <a
+						href="./font" class="mdui-list-item mdui-ripple ">字体</a> <a
+						href="./grid" class="mdui-list-item mdui-ripple ">网格布局</a> <a
+						href="./typo" class="mdui-list-item mdui-ripple ">排版</a> <a
+						href="./icon" class="mdui-list-item mdui-ripple ">图标</a> <a
+						href="./media" class="mdui-list-item mdui-ripple ">媒体</a> <a
+						href="./helper" class="mdui-list-item mdui-ripple ">辅助类</a> <a
+						href="./shadow" class="mdui-list-item mdui-ripple ">阴影</a>
+				</div>
+			</div>
 
-    <div class="mdui-collapse-item mdui-collapse-item-open">
-      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">widgets</i>
-        <div class="mdui-list-item-content">组件</div>
-        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
-      </div>
-      <div class="mdui-collapse-item-body mdui-list" style="height: auto;">
-        <a href="./ripple" class="mdui-list-item mdui-ripple ">涟漪动画效果</a>
-        <a href="./button" class="mdui-list-item mdui-ripple ">按钮</a>
-        <a href="./fab" class="mdui-list-item mdui-ripple ">浮动操作按钮</a>
-        <a href="./select" class="mdui-list-item mdui-ripple ">下拉选择</a>
-        <a href="./divider" class="mdui-list-item mdui-ripple ">分隔线</a>
-        <a href="./panel" class="mdui-list-item mdui-ripple ">可扩展面板</a>
-        <a href="./textfield" class="mdui-list-item mdui-ripple ">文本框</a>
-        <a href="./selection_control" class="mdui-list-item mdui-ripple ">选择控件</a>
-        <a href="./slider" class="mdui-list-item mdui-ripple ">滑块</a>
-        <a href="./list" class="mdui-list-item mdui-ripple ">列表</a>
-        <a href="./list_control" class="mdui-list-item mdui-ripple ">列表控制</a>
-        <a href="./grid_list" class="mdui-list-item mdui-ripple ">网格列表</a>
-        <a href="./tab" class="mdui-list-item mdui-ripple ">Tab 选项卡</a>
-        <a href="./toolbar" class="mdui-list-item mdui-ripple ">工具栏</a>
-        <a href="./appbar" class="mdui-list-item mdui-ripple ">应用栏</a>
-        <a href="./drawer" class="mdui-list-item mdui-ripple mdui-list-item-active">抽屉式导航</a>
-        <a href="./bottom_nav" class="mdui-list-item mdui-ripple ">底部导航栏</a>
-        <a href="./card" class="mdui-list-item mdui-ripple ">卡片</a>
-        <a href="./chip" class="mdui-list-item mdui-ripple ">纸片</a>
-        <a href="./tooltip" class="mdui-list-item mdui-ripple ">工具提示</a>
-        <a href="./snackbar" class="mdui-list-item mdui-ripple ">Snackbar</a>
-        <a href="./table" class="mdui-list-item mdui-ripple ">表格</a>
-        <a href="./dialog" class="mdui-list-item mdui-ripple ">对话框</a>
-        <a href="./menu" class="mdui-list-item mdui-ripple ">菜单</a>
-        <a href="./progress" class="mdui-list-item mdui-ripple ">进度指示器</a>
-      </div>
-    </div>
+			<div class="mdui-collapse-item mdui-collapse-item-open">
+				<div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+					<i
+						class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">widgets</i>
+					<div class="mdui-list-item-content">组件</div>
+					<i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+				</div>
+				<div class="mdui-collapse-item-body mdui-list" style="height: auto;">
+					<a href="./ripple" class="mdui-list-item mdui-ripple ">涟漪动画效果</a> <a
+						href="./button" class="mdui-list-item mdui-ripple ">按钮</a> <a
+						href="./fab" class="mdui-list-item mdui-ripple ">浮动操作按钮</a> <a
+						href="./select" class="mdui-list-item mdui-ripple ">下拉选择</a> <a
+						href="./divider" class="mdui-list-item mdui-ripple ">分隔线</a> <a
+						href="./panel" class="mdui-list-item mdui-ripple ">可扩展面板</a> <a
+						href="./textfield" class="mdui-list-item mdui-ripple ">文本框</a> <a
+						href="./selection_control" class="mdui-list-item mdui-ripple ">选择控件</a>
+					<a href="./slider" class="mdui-list-item mdui-ripple ">滑块</a> <a
+						href="./list" class="mdui-list-item mdui-ripple ">列表</a> <a
+						href="./list_control" class="mdui-list-item mdui-ripple ">列表控制</a>
+					<a href="./grid_list" class="mdui-list-item mdui-ripple ">网格列表</a>
+					<a href="./tab" class="mdui-list-item mdui-ripple ">Tab 选项卡</a> <a
+						href="./toolbar" class="mdui-list-item mdui-ripple ">工具栏</a> <a
+						href="./appbar" class="mdui-list-item mdui-ripple ">应用栏</a> <a
+						href="./drawer"
+						class="mdui-list-item mdui-ripple mdui-list-item-active">抽屉式导航</a>
+					<a href="./bottom_nav" class="mdui-list-item mdui-ripple ">底部导航栏</a>
+					<a href="./card" class="mdui-list-item mdui-ripple ">卡片</a> <a
+						href="./chip" class="mdui-list-item mdui-ripple ">纸片</a> <a
+						href="./tooltip" class="mdui-list-item mdui-ripple ">工具提示</a> <a
+						href="./snackbar" class="mdui-list-item mdui-ripple ">Snackbar</a>
+					<a href="./table" class="mdui-list-item mdui-ripple ">表格</a> <a
+						href="./dialog" class="mdui-list-item mdui-ripple ">对话框</a> <a
+						href="./menu" class="mdui-list-item mdui-ripple ">菜单</a> <a
+						href="./progress" class="mdui-list-item mdui-ripple ">进度指示器</a>
+				</div>
+			</div>
 
-    <div class="mdui-collapse-item ">
-      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-brown">view_carousel</i>
-        <div class="mdui-list-item-content">JavaScript 插件</div>
-        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
-      </div>
-      <div class="mdui-collapse-item-body mdui-list">
-        <a href="./collapse" class="mdui-list-item mdui-ripple ">Collapse</a>
-        <a href="./headroom" class="mdui-list-item mdui-ripple ">Headroom</a>
-      </div>
-    </div>
+			<div class="mdui-collapse-item ">
+				<div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+					<i
+						class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-brown">view_carousel</i>
+					<div class="mdui-list-item-content">JavaScript 插件</div>
+					<i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+				</div>
+				<div class="mdui-collapse-item-body mdui-list">
+					<a href="./collapse" class="mdui-list-item mdui-ripple ">Collapse</a>
+					<a href="./headroom" class="mdui-list-item mdui-ripple ">Headroom</a>
+				</div>
+			</div>
 
-    <div class="mdui-collapse-item ">
-      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">local_mall</i>
-        <div class="mdui-list-item-content">资源</div>
-        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
-      </div>
-      <div class="mdui-collapse-item-body mdui-list">
-        <a href="./material_icon" class="mdui-list-item mdui-ripple ">Material 图标</a>
-      </div>
-    </div>
-  </div>
-</div>
-	
-	
+			<div class="mdui-collapse-item ">
+				<div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+					<i
+						class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">local_mall</i>
+					<div class="mdui-list-item-content">关于博主</div>
+					<i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+				</div>
+				<div class="mdui-collapse-item-body mdui-list">
+					<a href="./material_icon" class="mdui-list-item mdui-ripple ">Material
+						图标</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 	<!-- login dialog -->
 	<div class="mdui-dialog" id="user_login_dialog"
 		style="display: block; top: 235px; height: 0px;">
@@ -162,104 +172,116 @@
 	<div class="mdui-dialog" id="user_regist_dialog">
 		<div class="mdui-dialog-title">用户注册</div>
 		<div class="mdui-dialog-content">
-			<div class="mdui-textfield mdui-textfield-floating-label" >
-					<label class="mdui-textfield-label">用户名</label> <input
-						class="mdui-textfield-input" type="text"  id="username" required/>
-						<div class="mdui-textfield-error">用户名不能为空</div>
-				</div>
-				<div class="mdui-textfield mdui-textfield-floating-label" >
-					<label class="mdui-textfield-label">邮箱</label> <input
-						class="mdui-textfield-input" type="email" id="email" required />
-						<div class="mdui-textfield-error">邮箱格式错误</div>
-				</div>
-				<div class="mdui-textfield mdui-textfield-floating-label" >
-					<label class="mdui-textfield-label">密码</label> <input
-						class="mdui-textfield-input" type="password" id="password" required/>
-						<div class="mdui-textfield-error">密码不能为空</div>
-				</div>
-				<div class="mdui-textfield mdui-textfield-floating-label" >
-					<label class="mdui-textfield-label">再次输入密码</label> <input
-						class="mdui-textfield-input" type="password" id="password1" required/>
-						<div class="mdui-textfield-error">密码不能为空</div>
-				</div>
+			<div class="mdui-textfield mdui-textfield-floating-label">
+				<label class="mdui-textfield-label">用户名</label> <input
+					class="mdui-textfield-input" type="text" id="username" required />
+				<div class="mdui-textfield-error">用户名不能为空</div>
+			</div>
+			<div class="mdui-textfield mdui-textfield-floating-label">
+				<label class="mdui-textfield-label">邮箱</label> <input
+					class="mdui-textfield-input" type="email" id="email" required />
+				<div class="mdui-textfield-error">邮箱格式错误</div>
+			</div>
+			<div class="mdui-textfield mdui-textfield-floating-label">
+				<label class="mdui-textfield-label">密码</label> <input
+					class="mdui-textfield-input" type="password" id="password" required />
+				<div class="mdui-textfield-error">密码不能为空</div>
+			</div>
+			<div class="mdui-textfield mdui-textfield-floating-label">
+				<label class="mdui-textfield-label">再次输入密码</label> <input
+					class="mdui-textfield-input" type="password" id="password1"
+					required />
+				<div class="mdui-textfield-error">密码不能为空</div>
+			</div>
 		</div>
 		<div class="mdui-dialog-actions">
-			<button class="mdui-btn mdui-ripple mdui-color-theme-accent" id="regist_btn">注册</button>
-      		<button class="mdui-btn mdui-ripple mdui-color-theme-accent" mdui-dialog-close>取消</button>
+			<button class="mdui-btn mdui-ripple mdui-color-theme-accent"
+				id="regist_btn">注册</button>
+			<button class="mdui-btn mdui-ripple mdui-color-theme-accent"
+				mdui-dialog-close>取消</button>
 		</div>
 	</div>
-	
-	
-<div class="mdui-dialog" id="add_bookmarks_dialog" style="display :block;top:235px;height:0px;">
-<div class="mdui-dialog-title">
-<div class="mdui-chip">
-  <span class="mdui-chip-icon"><i class="mdui-icon material-icons">&#xe87c;</i></span>
-  <span class="mdui-chip-title">添加书签</span>
-</div>
-</div>
-<div class="mdui-dialog-content" style="height: 116px;">
-	<div class="mdui-textfield mdui-textfield-floating-label">
-  		<label class="mdui-textfield-label">书签名</label>
-  		<input class="mdui-textfield-input" type="text" name="name" id="name" required />
-  		<div class="mdui-textfield-error">书签名不能为空</div>
-	</div>
-	<div class="mdui-textfield mdui-textfield-floating-label">
-	  	<label class="mdui-textfield-label">书签链接</label>
-	  	<input class="mdui-textfield-input" type="url" name="url" id="url" required/>
-	  	<div class="mdui-textfield-error">书签链接格式错误</div>
-	</div>
-	<div class="mdui-textfield mdui-textfield-floating-label">
-	  	<label class="mdui-textfield-label">书签描述</label>
-	  	<textarea class="mdui-textfield-input" name="description" id="description"></textarea>
-	</div>
-	<div>
-		<label class="mdui-checkbox">
-    	<input type="checkbox" name="state" id="state"  />
-    	<i class="mdui-checkbox-icon"></i>
-   	是否私密
-  </label>
-	</div>
-</div>
-<div class="mdui-dialog-actions">
-			<button class="mdui-btn mdui-ripple mdui-color-theme-accent" id="add_bookmark_btn">添加</button>
-      		<button class="mdui-btn mdui-ripple mdui-color-theme-accent" mdui-dialog-close>取消</button>
+
+
+	<div class="mdui-dialog" id="add_bookmarks_dialog"
+		style="display: block; top: 235px; height: 0px;">
+		<div class="mdui-dialog-title">
+			<div class="mdui-chip">
+				<span class="mdui-chip-icon"><i
+					class="mdui-icon material-icons">&#xe87c;</i></span> <span
+					class="mdui-chip-title">添加书签</span>
+			</div>
 		</div>
-</div>
-	
- <div class="mdui-dialog" id="edit_bookmarks_dialog" style="display: block; top: 235px; height: 0px;">
-	<div class="mdui-dialog-title">修改书签</div>
-	<div class="mdui-dialog-content" style="height: 116px;">
-	<div class="mdui-textfield">
-  		<label class="mdui-textfield-label">书签名</label>
-  		<input class="mdui-textfield-input" type="text" name="name" id="b_name" required />
-  		<div class="mdui-textfield-error">书签名不能为空</div>
+		<div class="mdui-dialog-content" style="height: 116px;">
+			<div class="mdui-textfield mdui-textfield-floating-label">
+				<label class="mdui-textfield-label">书签名</label> <input
+					class="mdui-textfield-input" type="text" name="name" id="name"
+					required />
+				<div class="mdui-textfield-error">书签名不能为空</div>
+			</div>
+			<div class="mdui-textfield mdui-textfield-floating-label">
+				<label class="mdui-textfield-label">书签链接</label> <input
+					class="mdui-textfield-input" type="url" name="url" id="url"
+					required />
+				<div class="mdui-textfield-error">书签链接格式错误</div>
+			</div>
+			<div class="mdui-textfield mdui-textfield-floating-label">
+				<label class="mdui-textfield-label">书签描述</label>
+				<textarea class="mdui-textfield-input" name="description"
+					id="description"></textarea>
+			</div>
+			<div>
+				<label class="mdui-checkbox"> <input type="checkbox"
+					name="state" id="state" /> <i class="mdui-checkbox-icon"></i>
+					是否私密
+				</label>
+			</div>
+		</div>
+		<div class="mdui-dialog-actions">
+			<button class="mdui-btn mdui-ripple mdui-color-theme-accent"
+				id="add_bookmark_btn">添加</button>
+			<button class="mdui-btn mdui-ripple mdui-color-theme-accent"
+				mdui-dialog-close>取消</button>
+		</div>
 	</div>
-	<div class="mdui-textfield">
-	  	<label class="mdui-textfield-label">书签链接</label>
-	  	<input class="mdui-textfield-input" type="url" name="url" id="b_url" disabled/>
+
+	<div class="mdui-dialog" id="edit_bookmarks_dialog"
+		style="display: block; top: 235px; height: 0px;">
+		<div class="mdui-dialog-title">修改书签</div>
+		<div class="mdui-dialog-content" style="height: 116px;">
+			<div class="mdui-textfield">
+				<label class="mdui-textfield-label">书签名</label> <input
+					class="mdui-textfield-input" type="text" name="name" id="b_name"
+					required />
+				<div class="mdui-textfield-error">书签名不能为空</div>
+			</div>
+			<div class="mdui-textfield">
+				<label class="mdui-textfield-label">书签链接</label> <input
+					class="mdui-textfield-input" type="url" name="url" id="b_url"
+					disabled />
+			</div>
+			<div class="mdui-textfield">
+				<label class="mdui-textfield-label">书签描述</label>
+				<textarea class="mdui-textfield-input" name="description"
+					id="b_description"></textarea>
+			</div>
+			<div>
+				<input id="b_id" type="hidden" />
+			</div>
+			<div>
+				<label class="mdui-checkbox"> <input type="checkbox"
+					name="state" id="b_state" /> <i class="mdui-checkbox-icon"></i>
+					是否私密
+				</label>
+			</div>
+			<div class="mdui-dialog-actions">
+				<button class="mdui-btn mdui-ripple" id="edit_bookmarks_btn">修改</button>
+				<button class="mdui-btn mdui-ripple" id="edit_bookmarks_btn1">修改1</button>
+				<button class="mdui-btn mdui-ripple" mdui-dialog-close>取消</button>
+			</div>
+		</div>
 	</div>
-	<div class="mdui-textfield">
-	  	<label class="mdui-textfield-label">书签描述</label>
-	  	<textarea class="mdui-textfield-input" name="description" id="b_description"></textarea>
-	</div>
-	<div>
-	<input id="b_id" type="hidden"/>
-	</div>
-	<div>
-		<label class="mdui-checkbox">
-    	<input type="checkbox" name="state" id="b_state"  />
-    	<i class="mdui-checkbox-icon"></i>
-   	是否私密
-  </label>
-  </div>
-  <div class="mdui-dialog-actions">
-      <button class="mdui-btn mdui-ripple" id="edit_bookmarks_btn">修改</button>
-      <button class="mdui-btn mdui-ripple" id="edit_bookmarks_btn1">修改1</button>
-      <button class="mdui-btn mdui-ripple" mdui-dialog-close>取消</button>
-    </div>
-  </div>
-</div>
-	
+
 	<div id="bookmarks_list"></div>
 	<script type="text/javascript" src="js/magic.js"></script>
 </body>
