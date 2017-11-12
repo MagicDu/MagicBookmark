@@ -38,6 +38,9 @@
 		</div>
 	</header>
 
+
+
+	<!-- menu  navigation  -->
 	<div class="mdui-drawer" id="main-drawer">
 		<div class="mdui-list" mdui-collapse="{accordion: true}"
 			style="margin-bottom: 76px;">
@@ -49,10 +52,10 @@
 					<i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
 				</div>
 				<div class="mdui-collapse-item-body mdui-list">
-					<a href="./download" class="mdui-list-item mdui-ripple ">开源项目
-						</a> <a href="./compatibility" class="mdui-list-item mdui-ripple ">博客收藏</a>
-					<a href="./specs" class="mdui-list-item mdui-ripple ">Python爬虫</a> <a
-						href="./jq" class="mdui-list-item mdui-ripple ">文档收藏</a>
+					<a href="./download" class="mdui-list-item mdui-ripple ">开源项目 </a>
+					<a href="./compatibility" class="mdui-list-item mdui-ripple ">博客收藏</a>
+					<a href="./specs" class="mdui-list-item mdui-ripple ">Python爬虫</a>
+					<a href="./jq" class="mdui-list-item mdui-ripple ">文档收藏</a>
 				</div>
 			</div>
 
@@ -60,7 +63,7 @@
 				<div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
 					<i
 						class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">layers</i>
-					<div class="mdui-list-item-content">样式</div>
+					<div class="mdui-list-item-content">我的文章</div>
 					<i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
 				</div>
 				<div class="mdui-collapse-item-body mdui-list">
@@ -168,6 +171,7 @@
 			</div>
 		</div>
 	</div>
+
 	<!-- regist_dialog  -->
 	<div class="mdui-dialog" id="user_regist_dialog">
 		<div class="mdui-dialog-title">用户注册</div>
@@ -202,6 +206,7 @@
 		</div>
 	</div>
 
+	<!-- add bookmarks -->
 
 	<div class="mdui-dialog" id="add_bookmarks_dialog"
 		style="display: block; top: 235px; height: 0px;">
@@ -232,8 +237,7 @@
 			</div>
 			<div>
 				<label class="mdui-checkbox"> <input type="checkbox"
-					name="state" id="state" /> <i class="mdui-checkbox-icon"></i>
-					是否私密
+					name="state" id="state" /> <i class="mdui-checkbox-icon"></i> 是否私密
 				</label>
 			</div>
 		</div>
@@ -245,6 +249,7 @@
 		</div>
 	</div>
 
+	<!-- edit bookmarks -->
 	<div class="mdui-dialog" id="edit_bookmarks_dialog"
 		style="display: block; top: 235px; height: 0px;">
 		<div class="mdui-dialog-title">修改书签</div>
@@ -283,6 +288,46 @@
 	</div>
 
 	<div id="bookmarks_list"></div>
+	<div id="main_list" style="margin-top: 10px">
+          <div class="mdui-col-sm-4 mdui-col-md-2">
+            <div class="mdui-card">
+              <div class="mdui-card-media">
+                <img src="img/card.jpg">
+                <a href="http://www.taobao.com">
+                <div class="mdui-card-media-covered mdui-card-media-covered-transparent">
+                  <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title">淘宝</div>
+                    <div class="mdui-card-primary-subtitle">欢庆双十一</div>
+                  </div>
+                </div>
+                </a>
+              </div>
+              <!-- <div class="mdui-card-actions">
+                <button class="mdui-btn mdui-ripple">action 1</button>
+                <button class="mdui-btn mdui-ripple">action 2</button>
+              </div> -->
+            </div>
+          </div>
+          <div class="mdui-col-sm-4 mdui-col-md-2">
+            <div class="mdui-card">
+              <div class="mdui-card-media">
+                <img src="img/card.jpg">
+                <a href="http://www.google.com">
+                <div class="mdui-card-media-covered mdui-card-media-covered-transparent">
+                  <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title">GreatFireWall</div>
+                    <div class="mdui-card-primary-subtitle">防火长城</div>
+                  </div>
+                </div>
+                </a>
+              </div>
+              <!-- <div class="mdui-card-actions">
+                <button class="mdui-btn mdui-ripple">action 1</button>
+                <button class="mdui-btn mdui-ripple">action 2</button>
+              </div> -->
+            </div>
+          </div>
+        </div>
 	<script type="text/javascript" src="js/magic.js"></script>
 </body>
 </html>
