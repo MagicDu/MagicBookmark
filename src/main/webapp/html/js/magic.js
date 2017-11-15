@@ -362,6 +362,7 @@ $('#edit_bookmarks_btn').click(function(e) {
 	
 });
 
+//测试数据专用
 $('#test').click(function (){
 	$.ajax({
 		type:'POST',
@@ -371,7 +372,8 @@ $('#test').click(function (){
 		},
 		success:function(data){
 			//mdui.alert(data.resultMap['test,计算机'][0].userid)
-			parseDataToView(data);
+			//parseDataToView(data);
+			parseCategoryToDrawer(data);
 		},
 		error:function(){
 			mdui.alert('服务器错误')
@@ -401,6 +403,20 @@ function parseDataToView(data){
 							+ " class=\"mdui-chip-delete\"><i class=\"mdui-icon material-icons\">edit</i></span></div>");
 			
 		}
+	}
+}
+
+/**
+ * 解析页面菜单，需要判断是否登录呀
+ * @param data
+ * @returns
+ */
+function parseCategoryToDrawer(data){
+	var resultMap=data.resultMap;
+	for (var prop in resultMap){
+		var category=prop.split(',')[1];
+		var categoryid=prop.split(',')[0];
+		$('#boomarkcollapse').append("<a class='mdui-list-item mdui-ripple' href='category/"+categoryid+"'>"+category+"</a>");
 	}
 }
 
