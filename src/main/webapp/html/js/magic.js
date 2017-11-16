@@ -6,6 +6,7 @@ login_dialog=new mdui.Dialog("#user_login_dialog");//用户登录对话框
 regist_dialog=new mdui.Dialog('#user_regist_dialog');//注册对话框
 addbookmrak_dialog=new mdui.Dialog('#add_bookmarks_dialog');//添加书签对话框
 navbar=new mdui.Drawer('#drawer')
+var bm_list="";
 
 var selector={
 	
@@ -373,6 +374,7 @@ $('#test').click(function (){
 		success:function(data){
 			//mdui.alert(data.resultMap['test,计算机'][0].userid)
 			//parseDataToView(data);
+			bm_list=data;
 			parseCategoryToDrawer(data);
 		},
 		error:function(){
@@ -416,10 +418,15 @@ function parseCategoryToDrawer(data){
 	for (var prop in resultMap){
 		var category=prop.split(',')[1];
 		var categoryid=prop.split(',')[0];
-		$('#boomarkcollapse').append("<a class='mdui-list-item mdui-ripple' href='category/"+categoryid+"'>"+category+"</a>");
+		$('#boomarkcollapse').append("<span class='mdui-list-item mdui-ripple' id='"+categoryid+"' onclick='loadData(event)'>"+category+"</span>");
 	}
 }
 
+
+function loadData(e){
+	str1=e.target.id+e.target.innerHTML;
+	alert(str1)
+}
 
 $('#edit_bookmarks_btn1').click(function() {
 	alert("名字:"+$('#name').val())
