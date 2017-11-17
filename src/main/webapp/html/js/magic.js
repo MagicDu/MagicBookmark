@@ -413,7 +413,10 @@ function parseDataToView(data){
  * @param data
  * @returns
  */
+
+var list_data;
 function parseCategoryToDrawer(data){
+	list_data=data;
 	var resultMap=data.resultMap;
 	for (var prop in resultMap){
 		var category=prop.split(',')[1];
@@ -424,8 +427,24 @@ function parseCategoryToDrawer(data){
 
 
 function loadData(e){
-	str1=e.target.id+e.target.innerHTML;
-	alert(str1)
+	$('#bmlist_container').empty()
+	var str1=e.target.id+','+e.target.innerText
+	var resultMap=list_data.resultMap;
+	var bmList=resultMap[str1];
+	//bmlist_container
+	for(var i=0;i<bmList.length;i++){
+		//mdui.alert(bmList[i].url)
+		$('#bmlist_container')
+		.append(
+				"<div class=\"mdui-chip\"><a class=\"mdui-chip-title mdui-btn\" href="
+						+ bmList[i].url
+						+ ">"
+						+ bmList[i].name
+						+ "</a> <span id="
+						+ bmList[i].id
+						+ " class=\"mdui-chip-delete\"><i class=\"mdui-icon material-icons\">edit</i></span></div>");
+		
+	}
 }
 
 $('#edit_bookmarks_btn1').click(function() {
