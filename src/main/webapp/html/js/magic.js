@@ -1,114 +1,94 @@
 /* my script */
 
 //初始几个对话框
-inst = new mdui.Dialog("#edit_bookmarks_dialog"); //编辑书签对话框
-login_dialog=new mdui.Dialog("#user_login_dialog");//用户登录对话框
-regist_dialog=new mdui.Dialog('#user_regist_dialog');//注册对话框
-addbookmrak_dialog=new mdui.Dialog('#add_bookmarks_dialog');//添加书签对话框
-navbar=new mdui.Drawer('#drawer')
-var bm_list="";
+inst = new mdui.Dialog("#edit_bookmarks_dialog"); // 编辑书签对话框
+login_dialog = new mdui.Dialog("#user_login_dialog");// 用户登录对话框
+regist_dialog = new mdui.Dialog('#user_regist_dialog');// 注册对话框
+addbookmrak_dialog = new mdui.Dialog('#add_bookmarks_dialog');// 添加书签对话框
+navbar = new mdui.Drawer('#drawer')
+var bm_list = "";
 
-var selector={
-	
+var selector = {
+
 }
-var options={
-	
-	
+var options = {
+
 }
 
-$(function(){
-	if(localStorage.getItem('*-@5679sdf')!=null){
-		//divDisplay('#menubarwithlogin','display:none');
+$(function() {
+	if (localStorage.getItem('*-@5679sdf') != null) {
+		// divDisplay('#menubarwithlogin','display:none');
 		init();
-	}
-	else{
-		//divDisplay('#menubarwithbookmark','display:none');
+	} else {
+		// divDisplay('#menubarwithbookmark','display:none');
 		$('#menubarwithbookmark').hide();
 	}
 })
 
 /**
  * 设置某个元素的css属性
+ * 
  * @param id
  * @param css_str
  * @returns
  */
-function divDisplay(id,css_str){
+function divDisplay(id, css_str) {
 	$(id).css(css_str);
 }
 
-function init(){
-					$('#menubarwithlogin').hide();
-					$('#menubarwithbookmark').show();
-					$.ajax({
-								type : 'POST',
-								url : '../selectBookmarks.action',
-								data : {
-									"user_id" : 'test'
-								},
-								dataType : 'json',
-								success : function(data) {
-									// alert(data);
-									$.each(data,function(i, item) {
-														// console.log(item.url);
+function init() {
+	$('#menubarwithlogin').hide();
+	$('#menubarwithbookmark').show();
+	$
+			.ajax({
+				type : 'POST',
+				url : '../selectBookmarks.action',
+				data : {
+					"user_id" : 'test'
+				},
+				dataType : 'json',
+				success : function(data) {
+					// alert(data);
+					$
+							.each(
+									data,
+									function(i, item) {
+										// console.log(item.url);
 
-														$('#bookmarks_list')
-																.append(
-																		"<div class=\"mdui-chip\"><a class=\"mdui-chip-title mdui-btn\" href="
-																				+ item.url
-																				+ ">"
-																				+ item.name
-																				+ "</a> <span id="
-																				+ item.id
-																				+ " class=\"mdui-chip-delete\"><i class=\"mdui-icon material-icons\">edit</i></span></div>");
+										$('#bookmarks_list')
+												.append(
+														"<div class=\"mdui-chip\"><a class=\"mdui-chip-title mdui-btn\" href="
+																+ item.url
+																+ ">"
+																+ item.name
+																+ "</a> <span id="
+																+ item.id
+																+ " class=\"mdui-chip-delete\"><i class=\"mdui-icon material-icons\">edit</i></span></div>");
 
-													})
-								},
-								error : function(data) {
-									mdui.alert("服务器错误");
-								}
+									})
+				},
+				error : function(data) {
+					mdui.alert("服务器错误");
+				}
 
-							});
+			});
 }
 
-				
-
-/*$(document).ready(function(){
-	$
-	.ajax({
-		type : 'POST',
-		url : '../selectBookmarks.action',
-		data : {
-			"user_id" : 'test'
-		},
-		dataType : 'json',
-		success : function(data) {
-			// alert(data);
-			$
-					.each(
-							data,
-							function(i, item) {
-								// console.log(item.url);
-
-								$('#bookmarks_list')
-										.append(
-												"<div class=\"mdui-chip\"><a class=\"mdui-chip-title mdui-btn\" href="
-														+ item.url
-														+ ">"
-														+ item.name
-														+ "</a> <span id="
-														+ item.id
-														+ " class=\"mdui-chip-delete\"><i class=\"mdui-icon material-icons\">edit</i></span></div>");
-
-							})
-		},
-		error : function(data) {
-			alert(data);
-		}
-
-	});
-})*/
-//管理员登录
+/*
+ * $(document).ready(function(){ $ .ajax({ type : 'POST', url :
+ * '../selectBookmarks.action', data : { "user_id" : 'test' }, dataType :
+ * 'json', success : function(data) { // alert(data); $ .each( data, function(i,
+ * item) { // console.log(item.url);
+ * 
+ * $('#bookmarks_list') .append( "<div class=\"mdui-chip\"><a
+ * class=\"mdui-chip-title mdui-btn\" href=" + item.url + ">" + item.name + "</a>
+ * <span id=" + item.id + " class=\"mdui-chip-delete\"><i class=\"mdui-icon
+ * material-icons\">edit</i></span></div>"); }) }, error : function(data) {
+ * alert(data); }
+ * 
+ * }); })
+ */
+// 管理员登录
 $('#admin_login_btn').click(function() {
 	$.ajax({
 		type : 'POST',
@@ -129,8 +109,8 @@ $('#admin_login_btn').click(function() {
 
 /**
  * 用户注册开始
- */ 
-$('#user_regist_btn_dialog').click(function(){
+ */
+$('#user_regist_btn_dialog').click(function() {
 	regist_dialog.open();
 })
 $("#regist_btn").click(function() {
@@ -156,8 +136,7 @@ $("#regist_btn").click(function() {
 		}
 	});
 })
-//--用户注册结束
-
+// --用户注册结束
 
 /**
  * 用户登录 开始
@@ -165,7 +144,7 @@ $("#regist_btn").click(function() {
 $('#user_login_btn_dialog').click(function() {
 	login_dialog.open();
 });
-$('#login_btn').click(function(){
+$('#login_btn').click(function() {
 	$.ajax({
 		type : 'POST',
 		url : '../userLogin.action',
@@ -178,10 +157,10 @@ $('#login_btn').click(function(){
 			login_dialog.close();
 			$('#login_username').val("");
 			$('#login_password').val("");
-			if(data.msg=="error"){
+			if (data.msg == "error") {
 				mdui.alert("用户名或者密码错误");
-			}else{
-				localStorage.setItem("*-@5679sdf",data.auth);
+			} else {
+				localStorage.setItem("*-@5679sdf", data.auth);
 				init();
 			}
 		},
@@ -190,20 +169,18 @@ $('#login_btn').click(function(){
 			$('#login_username').val("");
 			$('#login_password').val("");
 			mdui.alert("用户名或密码错误");
-			
+
 		}
 	});
 })
-//-- 用户登录结束
-
+// -- 用户登录结束
 
 /**
  * 添加书签
- */ 
-$('#add_bookmark').click(function(){
+ */
+$('#add_bookmark').click(function() {
 	addbookmrak_dialog.open();
 })
-
 
 $('#add_bookmark_btn').click(function() {
 	if ($('#state').prop('checked')) {
@@ -231,7 +208,6 @@ $('#add_bookmark_btn').click(function() {
 		}
 	})
 })
-
 
 $('#selectBookmarks')
 		.click(
@@ -296,159 +272,181 @@ $('#selectBookmarksVo').click(function() {
 	});
 })
 
-
 // 修改书签
-$('#bookmarks_list').on('click','span',(function(e) {
+$('#bookmarks_list').on('click', 'span', (function(e) {
 	$.ajax({
 		type : 'POST',
 		url : '../selectBookmarksById.action',
 		data : {
-			"id" :$(e.currentTarget)[0].id
+			"id" : $(e.currentTarget)[0].id
 		},
 		dataType : 'json',
 		success : function(data) {
-			  $('#b_id').val($(e.currentTarget)[0].id)
-			  $('#b_name').val(data.name); 
-			  $('#b_url').val(data.url);
-			  $('#b_description').val(data.description);
-			 // alert( $('#state').prop('checked'))
-			  if(data.state==1){
-				  $('#b_state').prop('checked',true)
-			  }
-			  //var inst = new mdui.Dialog("#edit_bookmarks_dialog");
-			 // console.log(inst.$dialog[0]); 
-			  inst.open();
-			  
-			 
+			$('#b_id').val($(e.currentTarget)[0].id)
+			$('#b_name').val(data.name);
+			$('#b_url').val(data.url);
+			$('#b_description').val(data.description);
+			// alert( $('#state').prop('checked'))
+			if (data.state == 1) {
+				$('#b_state').prop('checked', true)
+			}
+			// var inst = new mdui.Dialog("#edit_bookmarks_dialog");
+			// console.log(inst.$dialog[0]);
+			inst.open();
+
 		},
 		error : function(data) {
-			//console.log($(e.currentTarget)[0].id)
+			// console.log($(e.currentTarget)[0].id)
 			mdui.alert('服务器错误')
 		}
 	});
 
 }))
 
-
 $('#edit_bookmarks_btn').click(function(e) {
-	
-	//mdui.alert("修改成功");
+
+	// mdui.alert("修改成功");
 	if ($('#b_state').prop('checked')) {
 		state = 1;
 	} else {
 		state = 0;
 	}
 	$.ajax({
-		type:'POST',
-		url:'../updateBookmarksById.action',
-		data:{
-			"id":$('#b_id').val(),
-			"name":$('#b_name').val(),
-			"url":$('#b_url').val(),
-			"description":$('#b_description').val(),
-			"state":state
+		type : 'POST',
+		url : '../updateBookmarksById.action',
+		data : {
+			"id" : $('#b_id').val(),
+			"name" : $('#b_name').val(),
+			"url" : $('#b_url').val(),
+			"description" : $('#b_description').val(),
+			"state" : state
 		},
-		success:function(data){
+		success : function(data) {
 			inst.close();
-			mdui.alert('修改成功',function(){
+			mdui.alert('修改成功', function() {
 				$('#bookmarks_list').html('');
 				init();
 			});
-			
+
 		},
-		error:function(){
+		error : function() {
 			mdui.alert('服务器错误')
 		}
 	});
-	
+
 });
 
-//测试数据专用
-$('#test').click(function (){
+// 测试数据专用
+$('#test').click(function() {
 	$.ajax({
-		type:'POST',
-		url:'../selectUserBoomarks.action',
+		type : 'POST',
+		url : '../selectUserBoomarks.action',
 		data : {
 			"user_id" : 'test'
 		},
-		success:function(data){
-			//mdui.alert(data.resultMap['test,计算机'][0].userid)
-			//parseDataToView(data);
-			bm_list=data;
+		success : function(data) {
+			// mdui.alert(data.resultMap['test,计算机'][0].userid)
+			// parseDataToView(data);
+			bm_list = data;
 			parseCategoryToDrawer(data);
 		},
-		error:function(){
+		error : function() {
 			mdui.alert('服务器错误')
 		}
 	});
 });
 
 // 解析数据到页面上
-function parseDataToView(data){
-	var resultMap=data.resultMap;
-	for(var prop in resultMap){
-		//mdui.alert(resultMap[prop][0].userid)
-		var category=prop.split(',')[1];
-		var categoryid=prop.split(',')[0];
-		var bmList=resultMap[prop]
-		//mdui.alert(category)
-		for(var i=0;i<bmList.length;i++){
-			//mdui.alert(bmList[i].url)
+function parseDataToView(data) {
+	var resultMap = data.resultMap;
+	for ( var prop in resultMap) {
+		// mdui.alert(resultMap[prop][0].userid)
+		var category = prop.split(',')[1];
+		var categoryid = prop.split(',')[0];
+		var bmList = resultMap[prop]
+		// mdui.alert(category)
+		for (var i = 0; i < bmList.length; i++) {
+			// mdui.alert(bmList[i].url)
 			$('#bookmarks_list')
-			.append(
-					"<div class=\"mdui-chip\"><a class=\"mdui-chip-title mdui-btn\" href="
-							+ bmList[i].url
-							+ ">"
-							+ bmList[i].name
-							+ "</a> <span id="
-							+ bmList[i].id
-							+ " class=\"mdui-chip-delete\"><i class=\"mdui-icon material-icons\">edit</i></span></div>");
-			
+					.append(
+							"<div class=\"mdui-chip\"><a class=\"mdui-chip-title mdui-btn\" href="
+									+ bmList[i].url
+									+ ">"
+									+ bmList[i].name
+									+ "</a> <span id="
+									+ bmList[i].id
+									+ " class=\"mdui-chip-delete\"><i class=\"mdui-icon material-icons\">edit</i></span></div>");
+
 		}
 	}
 }
 
 /**
  * 解析页面菜单，需要判断是否登录呀
+ * 
  * @param data
  * @returns
  */
 
 var list_data;
-function parseCategoryToDrawer(data){
-	list_data=data;
-	var resultMap=data.resultMap;
-	for (var prop in resultMap){
-		var category=prop.split(',')[1];
-		var categoryid=prop.split(',')[0];
-		$('#boomarkcollapse').append("<span class='mdui-list-item mdui-ripple' id='"+categoryid+"' onclick='loadData(event)'>"+category+"</span>");
+function parseCategoryToDrawer(data) {
+	list_data = data;
+	var resultMap = data.resultMap;
+	for ( var prop in resultMap) {
+		var category = prop.split(',')[1];
+		var categoryid = prop.split(',')[0];
+		$('#boomarkcollapse')
+				.append(
+						"<span class='mdui-list-item mdui-ripple' id='"
+								+ categoryid + "' onclick='loadData(event)'>"
+								+ category + "</span>");
+	}
+}
+
+var div = "<div class='mdui-col-sm-4 mdui-col-md-2'><div class='mdui-card'><div class='mdui-card-media'><img src='img/card.jpg'><a href='{0}'><div class='mdui-card-media-covered mdui-card-media-covered-transparent'><div class='mdui-card-primary'><div class='mdui-card-primary-title'>{1}</div><div class='mdui-card-primary-subtitle'>{2}</div> </div></div></a></div></div></div>"
+function parseBm(bm) {
+	divstr = div.format(bm.url,bm.name,bm.description);
+	return divstr;
+}
+
+function loadData(e) {
+	$('#bmlist_container').empty()
+	var str1 = e.target.id + ',' + e.target.innerText
+	var resultMap = list_data.resultMap;
+	var bmList = resultMap[str1];
+	for (var i = 0; i < bmList.length; i++) {
+		$('#bmlist_container').append(parseBm(bmList[i]));
+
 	}
 }
 
 
-function loadData(e){
-	$('#bmlist_container').empty()
-	var str1=e.target.id+','+e.target.innerText
-	var resultMap=list_data.resultMap;
-	var bmList=resultMap[str1];
-	//bmlist_container
-	for(var i=0;i<bmList.length;i++){
-		//mdui.alert(bmList[i].url)
-		$('#bmlist_container')
-		.append(
-				"<div class=\"mdui-chip\"><a class=\"mdui-chip-title mdui-btn\" href="
-						+ bmList[i].url
-						+ ">"
-						+ bmList[i].name
-						+ "</a> <span id="
-						+ bmList[i].id
-						+ " class=\"mdui-chip-delete\"><i class=\"mdui-icon material-icons\">edit</i></span></div>");
-		
+
+String.prototype.format=function()  
+{  
+  if(arguments.length==0) return this;  
+  for(var s=this, i=0; i<arguments.length; i++)  
+    s=s.replace(new RegExp("\\{"+i+"\\}","g"), arguments[i]);  
+  return s;  
+};  
+
+/**
+ * 无用
+ * @returns
+ */
+function StringFormat() {
+	if (arguments.length == 0)
+		return null;
+	var str = arguments[0];
+	for (var i = 1; i < arguments.length; i++) {
+		var re = new RegExp('\\\\{' + (i - 1) + '\\\\}', 'gm');
+		str = str.replace(re, arguments[i]);
 	}
+	return str;
 }
 
 $('#edit_bookmarks_btn1').click(function() {
-	alert("名字:"+$('#name').val())
+	alert("名字:" + $('#name').val())
 })
 
 $('#test_btn').click(function() {
