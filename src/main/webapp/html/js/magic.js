@@ -6,7 +6,7 @@ login_dialog = new mdui.Dialog("#user_login_dialog");// 用户登录对话框
 regist_dialog = new mdui.Dialog('#user_regist_dialog');// 注册对话框
 addbookmrak_dialog = new mdui.Dialog('#add_bookmarks_dialog');// 添加书签对话框
 navbar = new mdui.Drawer('#drawer')
-var bm_list = "";
+//var bm_list = "";
 
 var selector = {
 
@@ -39,55 +39,23 @@ function divDisplay(id, css_str) {
 function init() {
 	$('#menubarwithlogin').hide();
 	$('#menubarwithbookmark').show();
-	$
-			.ajax({
-				type : 'POST',
-				url : '../selectBookmarks.action',
-				data : {
-					"user_id" : 'test'
-				},
-				dataType : 'json',
-				success : function(data) {
-					// alert(data);
-					$
-							.each(
-									data,
-									function(i, item) {
-										// console.log(item.url);
-
-										$('#bookmarks_list')
-												.append(
-														"<div class=\"mdui-chip\"><a class=\"mdui-chip-title mdui-btn\" href="
-																+ item.url
-																+ ">"
-																+ item.name
-																+ "</a> <span id="
-																+ item.id
-																+ " class=\"mdui-chip-delete\"><i class=\"mdui-icon material-icons\">edit</i></span></div>");
-
-									})
-				},
-				error : function(data) {
-					mdui.alert("服务器错误");
-				}
-
-			});
+	$.ajax({
+		type : 'POST',
+		url : '../selectUserBoomarks.action',
+		data : {
+			"user_id" : 'test'
+		},
+		success : function(data) {
+			//bm_list = data;
+			parseCategoryToDrawer(data);
+		},
+		error : function() {
+			mdui.alert('服务器错误')
+		}
+	});
 }
 
-/*
- * $(document).ready(function(){ $ .ajax({ type : 'POST', url :
- * '../selectBookmarks.action', data : { "user_id" : 'test' }, dataType :
- * 'json', success : function(data) { // alert(data); $ .each( data, function(i,
- * item) { // console.log(item.url);
- * 
- * $('#bookmarks_list') .append( "<div class=\"mdui-chip\"><a
- * class=\"mdui-chip-title mdui-btn\" href=" + item.url + ">" + item.name + "</a>
- * <span id=" + item.id + " class=\"mdui-chip-delete\"><i class=\"mdui-icon
- * material-icons\">edit</i></span></div>"); }) }, error : function(data) {
- * alert(data); }
- * 
- * }); })
- */
+
 // 管理员登录
 $('#admin_login_btn').click(function() {
 	$.ajax({
@@ -209,68 +177,7 @@ $('#add_bookmark_btn').click(function() {
 	})
 })
 
-$('#selectBookmarks')
-		.click(
-				function() {
-					$
-							.ajax({
-								type : 'POST',
-								url : '../../selectBookmarks.action',
-								data : {
-									"user_id" : 'test'
-								},
-								dataType : 'json',
-								success : function(data) {
-									// alert(data);
-									$
-											.each(
-													data,
-													function(i, item) {
-														// console.log(item.url);
 
-														$('#bookmarks_list')
-																.append(
-																		"<div class=\"mdui-chip\"><a class=\"mdui-chip-title mdui-btn\" href="
-																				+ item.url
-																				+ ">"
-																				+ item.name
-																				+ "</a> <span id="
-																				+ item.id
-																				+ " class=\"mdui-chip-delete\"><i class=\"mdui-icon material-icons\">edit</i></span></div>");
-
-													})
-								},
-								error : function(data) {
-									alert(data);
-								}
-
-							});
-				})
-
-$('#selectBookmarksVo').click(function() {
-	$.ajax({
-		type : 'POST',
-		url : '../../selectBookmarksVo.action',
-		data : {
-			"user_id" : 'test'
-		},
-		dataType : 'json',
-		success : function(data) {
-			// alert(data);
-			$.each(data, function(i, item) {
-				// console.log(item.url);
-				// console.log(item.category.name);
-				// $('#test').append("<a
-				// href="+item.url+">"+item.name+"</a></br>");
-
-			})
-		},
-		error : function(data) {
-			alert(data);
-		}
-
-	});
-})
 
 // 修改书签
 $('#bookmarks_list').on('click', 'span', (function(e) {
@@ -304,7 +211,6 @@ $('#bookmarks_list').on('click', 'span', (function(e) {
 }))
 
 $('#edit_bookmarks_btn').click(function(e) {
-
 	// mdui.alert("修改成功");
 	if ($('#b_state').prop('checked')) {
 		state = 1;
@@ -347,7 +253,7 @@ $('#test').click(function() {
 		success : function(data) {
 			// mdui.alert(data.resultMap['test,计算机'][0].userid)
 			// parseDataToView(data);
-			bm_list = data;
+			// = data;
 			parseCategoryToDrawer(data);
 		},
 		error : function() {
@@ -356,30 +262,6 @@ $('#test').click(function() {
 	});
 });
 
-// 解析数据到页面上
-function parseDataToView(data) {
-	var resultMap = data.resultMap;
-	for ( var prop in resultMap) {
-		// mdui.alert(resultMap[prop][0].userid)
-		var category = prop.split(',')[1];
-		var categoryid = prop.split(',')[0];
-		var bmList = resultMap[prop]
-		// mdui.alert(category)
-		for (var i = 0; i < bmList.length; i++) {
-			// mdui.alert(bmList[i].url)
-			$('#bookmarks_list')
-					.append(
-							"<div class=\"mdui-chip\"><a class=\"mdui-chip-title mdui-btn\" href="
-									+ bmList[i].url
-									+ ">"
-									+ bmList[i].name
-									+ "</a> <span id="
-									+ bmList[i].id
-									+ " class=\"mdui-chip-delete\"><i class=\"mdui-icon material-icons\">edit</i></span></div>");
-
-		}
-	}
-}
 
 /**
  * 解析页面菜单，需要判断是否登录呀
@@ -403,12 +285,20 @@ function parseCategoryToDrawer(data) {
 	}
 }
 
-var div = "<div class='mdui-col-sm-4 mdui-col-md-2'><div class='mdui-card'><div class='mdui-card-media'><img src='img/card.jpg'><a href='{0}'><div class='mdui-card-media-covered mdui-card-media-covered-transparent'><div class='mdui-card-primary'><div class='mdui-card-primary-title'>{1}</div><div class='mdui-card-primary-subtitle'>{2}</div> </div></div></a></div></div></div>"
+/**
+ * 单个卡片生成
+ */
+var div = "<div class='mdui-col-sm-4 mdui-col-md-2' style='margin-top: 10px'><div class='mdui-card'><div class='mdui-card-media'><img src='img/card.jpg'><a href='{0}'><div class='mdui-card-media-covered mdui-card-media-covered-transparent'><div class='mdui-card-primary'><div class='mdui-card-primary-title'>{1}</div><div class='mdui-card-primary-subtitle'>{2}</div> </div></div></a></div></div></div>"
 function parseBm(bm) {
 	divstr = div.format(bm.url,bm.name,bm.description);
 	return divstr;
 }
 
+/**
+ * 将书签数据解析为许多卡片
+ * @param e
+ * @returns
+ */
 function loadData(e) {
 	$('#bmlist_container').empty()
 	var str1 = e.target.id + ',' + e.target.innerText
@@ -416,12 +306,14 @@ function loadData(e) {
 	var bmList = resultMap[str1];
 	for (var i = 0; i < bmList.length; i++) {
 		$('#bmlist_container').append(parseBm(bmList[i]));
-
 	}
 }
 
 
 
+/**
+ * 字符串占位符拼接
+ */
 String.prototype.format=function()  
 {  
   if(arguments.length==0) return this;  
@@ -430,8 +322,10 @@ String.prototype.format=function()
   return s;  
 };  
 
+
+
 /**
- * 无用
+ * 暂时无用
  * @returns
  */
 function StringFormat() {
