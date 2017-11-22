@@ -6,7 +6,7 @@ login_dialog = new mdui.Dialog("#user_login_dialog");// 用户登录对话框
 regist_dialog = new mdui.Dialog('#user_regist_dialog');// 注册对话框
 addbookmrak_dialog = new mdui.Dialog('#add_bookmarks_dialog');// 添加书签对话框
 navbar = new mdui.Drawer('#drawer')
-//var bm_list = "";
+// var bm_list = "";
 
 var selector = {
 
@@ -36,6 +36,11 @@ function divDisplay(id, css_str) {
 	$(id).css(css_str);
 }
 
+/**
+ * 页面初始化加载元素
+ * 
+ * @returns
+ */
 function init() {
 	$('#menubarwithlogin').hide();
 	$('#menubarwithbookmark').show();
@@ -46,7 +51,7 @@ function init() {
 			"user_id" : 'test'
 		},
 		success : function(data) {
-			//bm_list = data;
+			// bm_list = data;
 			parseCategoryToDrawer(data);
 		},
 		error : function() {
@@ -54,7 +59,6 @@ function init() {
 		}
 	});
 }
-
 
 // 管理员登录
 $('#admin_login_btn').click(function() {
@@ -177,8 +181,6 @@ $('#add_bookmark_btn').click(function() {
 	})
 })
 
-
-
 // 修改书签
 $('#bookmarks_list').on('click', 'span', (function(e) {
 	$.ajax({
@@ -262,7 +264,6 @@ $('#test').click(function() {
 	});
 });
 
-
 /**
  * 解析页面菜单，需要判断是否登录呀
  * 
@@ -290,12 +291,13 @@ function parseCategoryToDrawer(data) {
  */
 var div = "<div class='mdui-col-sm-4 mdui-col-md-2' style='margin-top: 10px'><div class='mdui-card'><div class='mdui-card-media'><img src='img/card.jpg'><a href='{0}'><div class='mdui-card-media-covered mdui-card-media-covered-transparent'><div class='mdui-card-primary'><div class='mdui-card-primary-title'>{1}</div><div class='mdui-card-primary-subtitle'>{2}</div> </div></div></a></div></div></div>"
 function parseBm(bm) {
-	divstr = div.format(bm.url,bm.name,bm.description);
+	divstr = div.format(bm.url, bm.name, bm.description);
 	return divstr;
 }
 
 /**
  * 将书签数据解析为许多卡片
+ * 
  * @param e
  * @returns
  */
@@ -309,23 +311,20 @@ function loadData(e) {
 	}
 }
 
-
-
 /**
  * 字符串占位符拼接
  */
-String.prototype.format=function()  
-{  
-  if(arguments.length==0) return this;  
-  for(var s=this, i=0; i<arguments.length; i++)  
-    s=s.replace(new RegExp("\\{"+i+"\\}","g"), arguments[i]);  
-  return s;  
-};  
-
-
+String.prototype.format = function() {
+	if (arguments.length == 0)
+		return this;
+	for (var s = this, i = 0; i < arguments.length; i++)
+		s = s.replace(new RegExp("\\{" + i + "\\}", "g"), arguments[i]);
+	return s;
+};
 
 /**
  * 暂时无用
+ * 
  * @returns
  */
 function StringFormat() {
@@ -337,6 +336,17 @@ function StringFormat() {
 		str = str.replace(re, arguments[i]);
 	}
 	return str;
+}
+
+/**
+ * 生成对话框
+ * @param title
+ * @param options
+ * @param event
+ * @returns
+ */
+function createDialog(title,options,event) {
+	
 }
 
 $('#edit_bookmarks_btn1').click(function() {
